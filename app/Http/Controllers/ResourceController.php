@@ -13,10 +13,11 @@ class ResourceController extends Controller
     public function index()
     {
         $resource = Resource::latest()->paginate(10);
-        return [
+   /*     return [
             "status" => 1,
             "data" => $resource
-        ];
+        ];*/
+        return $resource;
     }
 
     /**
