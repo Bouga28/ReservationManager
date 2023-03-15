@@ -50,10 +50,11 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-        return [
+    /*    return [
             "status" => 1,
             "data" =>$resource
-        ];
+        ];*/
+        return $resource;
     }
 
     /**
