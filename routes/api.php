@@ -19,6 +19,8 @@ Route::resource('resource', ResourceController::class);
 
 Route::resource('type', TypeController::class);
 
+Route::get('type/{slug}/resources', [ResourceController::class, 'index'])->name('resources.types');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

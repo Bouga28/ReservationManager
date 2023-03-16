@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Resource;
+use App\Models\{Resource,Type};
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
@@ -10,15 +10,21 @@ class ResourceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($slug = null)
     {
-        $resource = Resource::paginate(10);
-   /*     return [
+        $query = $slug ? Type::whereSlug($slug)->firstOrFail()->types() : Type::query();
+        $resources = $query->withTrashed()->oldest('name')->paginate(5);
+        $types = Type::all();
+        return view('index', compact('resources', 'types', 'slug'));
+        //return $resources;
+    }
+   /*     $resource = Resource::paginate(10);
+        return [
             "status" => 1,
             "data" => $resource
-        ];*/
+        ];
         return $resource;
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
