@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\TypeController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\ResourceController;
 Route::resource('resource', ResourceController::class);
+
+Route::resource('type', TypeController::class);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
