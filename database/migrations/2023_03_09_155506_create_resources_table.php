@@ -16,20 +16,22 @@ class CreateResourcesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
-
+        
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->nullable();
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('types_id');
-            $table->foreign('types_id')
+            $table->timestamps();
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')
                 ->references('id')
                 ->on('types')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->timestamps();
+            
         });
     }
  

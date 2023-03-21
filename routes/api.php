@@ -15,11 +15,11 @@ use App\Http\Controllers\TypeController;
 |
 */
 
-Route::resource('resource', ResourceController::class);
+Route::get('resource', [ResourceController::class, 'liste']);
 
 Route::resource('type', TypeController::class);
 
-Route::get('type/{slug}/resources', [ResourceController::class, 'index'])->name('resources.types');
+Route::get('type/{slug}/resources', [ResourceController::class, 'index'])->name('resources.type');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

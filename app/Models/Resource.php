@@ -11,11 +11,12 @@ class Resource extends Model
     protected $fillable = [
         'name',
         'description',
-        'types_id'
+        'type_id'
     ];
 
     public function type()
     { 
         return $this->belongsTo(Type::class); 
     }
+
 }

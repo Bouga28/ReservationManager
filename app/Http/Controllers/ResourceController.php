@@ -9,22 +9,28 @@ class ResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     
+
+    */
+
     public function index($slug = null)
     {
-        $query = $slug ? Type::whereSlug($slug)->firstOrFail()->types() : Type::query();
-        $resources = $query->withTrashed()->oldest('name')->paginate(5);
-        $types = Type::all();
-        return view('index', compact('resources', 'types', 'slug'));
-        //return $resources;
+        $query = $slug ? Type::whereSlug($slug)->firstOrFail()->resources() : Resource::query();
+        $resources = $query->oldest('name')->paginate(5);
+        $types = Type::with('resources')->get();
+        
+        return response()->json($types,200);
     }
-   /*     $resource = Resource::paginate(10);
-        return [
-            "status" => 1,
-            "data" => $resource
-        ];
+
+    public function liste()
+    {
+        $resource = Resource::paginate(10);
+
         return $resource;
-    }*/
+    }
+
+
+
 
     /**
      * Show the form for creating a new resource.
