@@ -12,7 +12,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $type = Type::paginate(10);
+        $type = Type::all();
         return $type;
     }
 

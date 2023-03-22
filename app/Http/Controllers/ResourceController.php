@@ -13,19 +13,26 @@ class ResourceController extends Controller
 
     */
 
-    public function index($slug = null)
+    public function indexbyliste($slug = null)
     {
         $query = $slug ? Type::whereSlug($slug)->firstOrFail()->resources() : Resource::query();
         $resources = $query->oldest('name')->paginate(5);
         $types = Type::with('resources')->get();
         
-        return response()->json($types,200);
+        return response()->json($resources,200);
     }
 
-    public function liste()
+    public function index()
     {
         $resource = Resource::paginate(10);
+/*
+        return [
+            'id' => 0, // $resource ->id,
+            'name' => 'test', //$this->name,
+            'type_id' => 'car'
+//            'secret' => $this->when($request->user()->isAdmin(), 'secret-value'),
 
+        ];*/
         return $resource;
     }
 
