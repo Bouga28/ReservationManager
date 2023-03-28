@@ -13,6 +13,19 @@ class ResourceController extends Controller
 
     */
 
+    public function liste()
+    {
+        
+     /*   $resources = Resource::with('type')->get();
+        
+        return response()->json($resources,200);*/
+
+
+        return Resource::with('type')->paginate(10);
+    }
+
+
+
     public function indexbyliste($slug = null)
     {
         $query = $slug ? Type::whereSlug($slug)->firstOrFail()->resources() : Resource::query();
