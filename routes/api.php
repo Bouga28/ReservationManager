@@ -22,14 +22,25 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 
 });
+
+
+Route::controller(TypeController::class)->group(function () {
+    Route::get('type', 'index');
+    Route::post('type', 'store');
+    Route::get('type/{id}', 'show');
+    Route::put('type/{id}', 'update');
+    Route::delete('type/{id}', 'destroy');
+    Route::get('type/{slug}/resources','indexbyliste');
+}); 
+
 //Route::get('resource', [ResourceController::class, 'index']);
 
 Route::resource('resource', ResourceController::class);
 
 
-Route::resource('type', TypeController::class);
+//Route::resource('type', TypeController::class);
 
-Route::get('type/{slug}/resources', [ResourceController::class, 'indexbyliste'])->name('resources.type');
+//Route::get('type/{slug}/resources', [ResourceController::class, 'indexbyliste'])->name('resources.type');
 Route::get('resources', [ResourceController::class, 'liste']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
