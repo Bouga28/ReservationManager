@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\AuthController;
 /*
@@ -40,6 +41,15 @@ Route::controller(ResourceController::class)->group(function () {
     Route::put('resource/{id}', 'update');
     Route::delete('resource/{id}', 'destroy');
     Route::get('resources', 'liste');
+}); 
+
+Route::controller(ReservationController::class)->group(function () {
+    Route::get('reservation', 'index');
+    Route::post('reservation', 'store');
+    Route::get('reservation/{id}', 'show');
+    Route::put('reservation/{id}', 'update');
+    Route::delete('reservation/{id}', 'destroy');
+
 }); 
 
 //Route::get('resource', [ResourceController::class, 'index']);

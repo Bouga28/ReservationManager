@@ -18,5 +18,9 @@ class Resource extends Model
     { 
         return $this->belongsTo(Type::class); 
     }
+    public function reservations() 
+    { 
+        return $this->hasMany(Reservation::class); 
+    }    
 
 }
