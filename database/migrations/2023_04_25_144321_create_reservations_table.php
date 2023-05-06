@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
             $table->DateTime('deb');
+            $table->time('heuredeb');
             $table->DateTime('fin');
+            $table->time('heurefin');
             $table->boolean('approval');
+            $table->boolean('validation');
             $table->unsignedBigInteger('resource_id');
             $table->foreign('resource_id')
                 ->references('id')

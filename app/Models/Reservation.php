@@ -10,8 +10,11 @@ class Reservation extends Model
     use HasFactory;
     protected $fillable = [
         'deb',
+        'heuredeb',
         'fin',
+        'heurefin',
         'approval',
+        'validation',
         'resource_id',
         'user_id'
     ];
