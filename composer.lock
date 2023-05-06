@@ -4,8 +4,117 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "321915d7a82ba63640f1a5a8d71e853b",
+    "content-hash": "1063e8b093a050c55fb6d9340ee8a695",
     "packages": [
+        {
+            "name": "balajidharma/laravel-admin-core",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/balajidharma/laravel-admin-core.git",
+                "reference": "625e9a55c4de72d6a528c03b8c6fe70787a060c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/balajidharma/laravel-admin-core/zipball/625e9a55c4de72d6a528c03b8c6fe70787a060c6",
+                "reference": "625e9a55c4de72d6a528c03b8c6fe70787a060c6",
+                "shasum": ""
+            },
+            "require": {
+                "balajidharma/laravel-menu": "^1.0",
+                "spatie/laravel-permission": "^5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BalajiDharma\\LaravelAdminCore\\AdminCoreServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BalajiDharma\\LaravelAdminCore\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Balaji Dharmaraja",
+                    "homepage": "https://github.com/balajidharma"
+                }
+            ],
+            "description": "Laravel admin core",
+            "keywords": [
+                "admin",
+                "admin-core",
+                "admin-panel",
+                "laravel",
+                "laravel-admin-panel"
+            ],
+            "support": {
+                "issues": "https://github.com/balajidharma/laravel-admin-core/issues",
+                "source": "https://github.com/balajidharma/laravel-admin-core/tree/v1.0.3"
+            },
+            "time": "2023-01-18T01:13:28+00:00"
+        },
+        {
+            "name": "balajidharma/laravel-menu",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/balajidharma/laravel-menu.git",
+                "reference": "63c05b5d723a890dfc1ad0b59464f530ec4f8fa5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/balajidharma/laravel-menu/zipball/63c05b5d723a890dfc1ad0b59464f530ec4f8fa5",
+                "reference": "63c05b5d723a890dfc1ad0b59464f530ec4f8fa5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.71|^9.0|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "BalajiDharma\\LaravelMenu\\MenuServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "BalajiDharma\\LaravelMenu\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Balaji Dharmaraja",
+                    "homepage": "https://github.com/balajidharma"
+                }
+            ],
+            "description": "Laravel database menu manager",
+            "keywords": [
+                "laravel",
+                "laravel-menu",
+                "laravel-menu-manager",
+                "menu",
+                "menu-manager"
+            ],
+            "support": {
+                "issues": "https://github.com/balajidharma/laravel-menu/issues",
+                "source": "https://github.com/balajidharma/laravel-menu/tree/v1.0.6"
+            },
+            "time": "2023-03-31T13:13:26+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.10.2",
@@ -1373,6 +1482,79 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.8.1"
             },
             "time": "2023-02-15T16:40:09+00:00"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v6.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "64ddfdcaeeb8d332bd98bef442bef81e39c3910b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/64ddfdcaeeb8d332bd98bef442bef81e39c3910b",
+                "reference": "64ddfdcaeeb8d332bd98bef442bef81e39c3910b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/routing": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/session": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "illuminate/view": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "illuminate/database": "^6.0|^7.0|^8.0|^9.0|^10.0",
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~8.5|^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                },
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "https://laravelcollective.com",
+            "support": {
+                "issues": "https://github.com/LaravelCollective/html/issues",
+                "source": "https://github.com/LaravelCollective/html"
+            },
+            "abandoned": "spatie/laravel-html",
+            "time": "2023-04-25T02:46:11+00:00"
         },
         {
             "name": "lcobucci/clock",
@@ -3291,6 +3473,88 @@
                 }
             ],
             "time": "2023-01-12T18:13:24+00:00"
+        },
+        {
+            "name": "spatie/laravel-permission",
+            "version": "5.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "d08b3ffc5870cce4a47a39f22174947b33c191ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/d08b3ffc5870cce4a47a39f22174947b33c191ae",
+                "reference": "d08b3ffc5870cce4a47a39f22174947b33c191ae",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/container": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/contracts": "^7.0|^8.0|^9.0|^10.0",
+                "illuminate/database": "^7.0|^8.0|^9.0|^10.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0|^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^9.4",
+                "predis/predis": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "5.x-dev",
+                    "dev-master": "5.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 6.0 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "permissions",
+                "rbac",
+                "roles",
+                "security",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-permission/issues",
+                "source": "https://github.com/spatie/laravel-permission/tree/5.10.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-04-12T17:08:32+00:00"
         },
         {
             "name": "stella-maris/clock",

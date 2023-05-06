@@ -6,6 +6,7 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UsersController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,7 +25,7 @@ Route::controller(AuthController::class)->group(function () {
 
 });
 
-
+/*
 Route::controller(TypeController::class)->group(function () {
     Route::get('type', 'index');
     Route::post('type', 'store');
@@ -32,15 +33,18 @@ Route::controller(TypeController::class)->group(function () {
     Route::put('type/{id}', 'update');
     Route::delete('type/{id}', 'destroy');
     Route::get('type/{slug}/resources','indexbyliste');
-}); 
+}); */
+Route::resource('type', TypeController::class);
+Route::get('type/{slug}/resources', [ResourceController::class, 'indexbyliste'])->name('resources.type');
 
 Route::controller(ResourceController::class)->group(function () {
     Route::get('resource', 'index');
     Route::post('resource', 'store');
-    Route::get('resource/{id}', 'show');
+    Route::get('resource/page/{id}', 'show');
     Route::put('resource/{id}', 'update');
-    Route::delete('resource/{id}', 'destroy');
+    Route::delete('resource/{id}', 'delete');
     Route::get('resources', 'liste');
+    Route::get('resourcebyid/{id}', 'getbyid');
 }); 
 
 Route::controller(ReservationController::class)->group(function () {
@@ -49,9 +53,32 @@ Route::controller(ReservationController::class)->group(function () {
     Route::get('reservation/{id}', 'show');
     Route::put('reservation/{id}', 'update');
     Route::delete('reservation/{id}', 'destroy');
+    Route::get('reservations', 'liste');
 
 }); 
 
+Route::controller(UsersController::class)->group(function () {
+    Route::get('users', 'index');
+    Route::post('users', 'store');
+    Route::get('users/{id}', 'show');
+    Route::put('users/{id}', 'update');
+    Route::delete('users/{id}', 'destroy');
+
+
+}); 
+
+/*
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+Route::resource('roles', RolesController::class);
+Route::resource('permissions', PermissionsController::class);
+   /*
+
+    Route::resource('roles', RolesController::class);
+    Route::resource('permissions', PermissionsController::class);
+
+    */
 //Route::get('resource', [ResourceController::class, 'index']);
 
 //Route::resource('resource', ResourceController::class);
@@ -61,7 +88,25 @@ Route::controller(ReservationController::class)->group(function () {
 
 //Route::get('type/{slug}/resources', [ResourceController::class, 'indexbyliste'])->name('resources.type');
 //Route::get('resources', [ResourceController::class, 'liste']);
+/*
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+
+        /**
+         * User Routes
+         
+        Route::group(['prefix' => 'posts'], function() {
+            Route::get('/', 'PostsController@index')->name('posts.index');
+            Route::get('/create', 'PostsController@create')->name('posts.create');
+            Route::post('/create', 'PostsController@store')->name('posts.store');
+            Route::get('/{post}/show', 'PostsController@show')->name('posts.show');
+            Route::get('/{post}/edit', 'PostsController@edit')->name('posts.edit');
+            Route::patch('/{post}/update', 'PostsController@update')->name('posts.update');
+            Route::delete('/{post}/delete', 'PostsController@destroy')->name('posts.destroy');
+        });
+
+        Route::resource('roles', RolesController::class);
+        Route::resource('permissions', PermissionsController::class);
+    });
+});*/

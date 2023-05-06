@@ -21,6 +21,13 @@ class ReservationController extends Controller
         return $reservations;
     }
 
+    public function liste()
+    {
+        
+
+        return Reservation::with('resource','user')->paginate(10);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -49,9 +56,17 @@ class ReservationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Reservation $reservation)
+    public function show($id)
     {
-        return $reservation;
+    $t = Type::find($id);
+    if (is_null($t)) {
+    return $this->sendError('Type not found.');
+    }
+    return response()->json([
+    "success" => true,
+    "message" => "Type retrieved successfully.",
+    "data" => $t
+    ]);
     }
 
     /**

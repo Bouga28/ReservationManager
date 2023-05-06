@@ -22,11 +22,6 @@ class ResourceController extends Controller
     public function liste()
     {
         
-     /*   $resources = Resource::with('type')->get();
-        
-        return response()->json($resources,200);*/
-
-
         return Resource::with('type')->paginate(10);
     }
 
@@ -56,7 +51,14 @@ class ResourceController extends Controller
     }
 
 
+    public function getbyid($id )
+    {
 
+        $resource = Resource::where('id','=',$id)->get();
+
+        
+        return $resource;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -88,7 +90,7 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-    /*    return [
+      /* return [
             "status" => 1,
             "data" =>$resource
         ];*/
@@ -106,31 +108,32 @@ class ResourceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Resource $resource)
+    public function update(Request $request, Resource $ressource)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
+            'id' => 'required',
         ]);
  
-        $resource->update($request->all());
+        $ressource->update($request->all());
  
         return [
             "status" => 1,
-            "data" => $resource,
-            "msg" => "Resource updated successfully"
+            "data" => $ressource,
+            "msg" => "Type updated successfully"
         ];
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Resource $resource)
+    public function delete($id)
     {
-        $resource->delete();
+        Resource::destroy($id);
+
+   
         return [
             "status" => 1,
-            "data" => $resource,
+ 
             "msg" => "Resource deleted successfully"
         ];
     }
