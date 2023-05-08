@@ -38,7 +38,7 @@ class ResourceController extends Controller
 
     public function index()
     {
-        $resource = Resource::paginate(10);
+        $resource = Resource::all();
 /*
         return [
             'id' => 0, // $resource ->id,
